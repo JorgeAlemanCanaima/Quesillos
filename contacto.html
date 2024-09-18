@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!--========== API Leaflet ==========-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+        <title>Quesillos lo nuestro - Contacto</title>
+    </head>
+    <body>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Quesillos Lo nuestro</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">Sobre nosotros</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link">Servicios</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link active-link">Contáctanos</a></li>
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <!--========== CONTACTO ==========-->
+        <section id="contact" class="contact section bd-container">
+            <h2 class="section-title">Contáctanos</h2>
+
+            <!-- Formulario de contacto -->
+            <div class="contact__form bd-grid">
+                <form action="http://localhost/responsive-website-restaurant/submit_contact.php" method="POST" class="form">
+
+                    <div class="form__group">
+                        <label for="name" class="form__label">Nombre</label>
+                        <input type="text" id="name" name="name" class="form__input" placeholder="Escribe tu nombre" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email" class="form__label">Correo</label>
+                        <input type="email" id="email" name="email" class="form__input" placeholder="Escribe tu correo" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="message" class="form__label">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" class="form__input" placeholder="Escribe tu mensaje" required></textarea>
+                    </div>
+                    <input type="submit" value="Enviar" class="button target="_blank" >
+                </form>
+                
+            </div>
+
+            <!-- Mapa usando Leaflet -->
+            <div id="map" style="height: 400px; width: 100%; margin-top: 2rem;"></div>
+
+            <script>
+                // Inicializar el mapa y establecer su vista
+                var map = L.map('map').setView([12.12003216438064, -86.25957497328254], 15); // Coordenadas de Managua, Nicaragua
+
+                // Cargar y mostrar una capa de mapa (OpenStreetMap)
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                // Añadir marcador en las coordenadas
+                L.marker([12.12003216438064, -86.25957497328254]).addTo(map)
+                    .bindPopup('Quesillos Lo Nuestro<br>Contiguo a Claro Altamira, Managua.')
+                    .openPopup();
+            </script>
+        </section>
+         <!--========== FOOTER ==========-->
+         <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">Quesillos lo nuestro</a>
+                    <span class="footer__description">Restaurante</span>
+                    <div>
+                        <a href="https://www.facebook.com/profile.php?id=100064117838905&locale=es_LA" 
+                        class="footer__social" target="_blank"><i
+                        class='bx bxl-facebook'></i></a>
+                        
+                    </div>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Servicios</h3>
+                    <ul>
+                        <li><a href="https://www.pedidosyani.com.ni/restaurantes/managua/quesillos-lo-nuestro-menu"
+                                class="footer__link" target="_blank">Delivery</a></li>
+                        
+                        <li><a href="#" class="footer__link">Reservaciones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Information</h3>
+                    <ul>
+                        
+                        <li><a href="#" class="footer__link">Contatanos</a></li>
+                        <li><a href="https://bookline.io/politica-de-privacidad-restaurantes/" class="footer__link" target="_blank
+                            ">Politicas de privacidad
+                                </a></li>
+                        <li><a href="#" class="footer__link">Terms of
+                                services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Direccion </h3>
+                    <ul>
+                        <li>Managua - Nicaragua</li>
+                        <li>Contiguo a Claro Altamira</li>
+                        <li>Quesilloslonuestro@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; ©2024 UNICOM. Todos los derechos reservados</p>
+        </footer>
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
